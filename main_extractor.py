@@ -43,14 +43,14 @@ class MainExtractor:
                     byte1 = int(l[4:6], 16)
                     byte2 = int(l[2:4], 16)
                     byte3 = int(l[0:2], 16)
-                    binary_format = bytearray([byte0, byte1, byte2, byte3])
+                    binary_format = bytearray([byte3, byte2, byte1, byte0])
                     f.write(binary_format)
                 else:
                     byte0 = int(l[6:8], 16)
                     byte1 = int(l[4:6], 16)
                     byte2 = int(l[2:4], 16)
                     byte3 = int(l[0:2], 16)
-                    binary_format = bytearray([byte0, byte1, byte2, byte3])
+                    binary_format = bytearray([byte3, byte2, byte1, byte0])
                     f.write(binary_format)
 
 
