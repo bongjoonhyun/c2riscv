@@ -36,12 +36,22 @@ class MainExtractor:
         if not os.path.exists("/c2riscv/hex"):
             os.makedirs("/c2riscv/hex")
 
-        with open(hex_filename, "w") as f:
+        with open(hex_filename, "w+b") as f:
             for l in main_hex:
                 if l == "00008067":
-                    f.write(l)
+                    byte0 = int(l[6:8], 16)
+                    byte1 = int(l[4:6], 16)
+                    byte2 = int(l[2:4], 16)
+                    byte3 = int(l[0:2], 16)
+                    binary_format = bytearray([byte0, byte1, byte2, byte3])
+                    f.write(binary_format)
                 else:
-                    f.write(l + "\n")
+                    byte0 = int(l[6:8], 16)
+                    byte1 = int(l[4:6], 16)
+                    byte2 = int(l[2:4], 16)
+                    byte3 = int(l[0:2], 16)
+                    binary_format = bytearray([byte0, byte1, byte2, byte3])
+                    f.write(binary_format)
 
 
 def main():
