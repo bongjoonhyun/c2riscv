@@ -28,7 +28,7 @@ HEX = $(patsubst $(SRC_DIR)/%.$(CC_SUFFIX), $(HEX_DIR)/%.$(HEX_SUFFIX), $(SRC))
 # top program
 all: test
 
-test: $(HEX)
+test: $(HEX) $(BIN) $(ASM)
 	@echo "All binaries are compiled"
 
 clean:
